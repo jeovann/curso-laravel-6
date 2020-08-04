@@ -1,8 +1,21 @@
 <?php
+
+Route::resource('products', 'ProductController');
+/*
+Route::put('products/{id}', 'ProductController@destroy')->name('products.destroy');
+Route::put('products/{id}', 'ProductController@update')->name('products.update');
+Route::get('products/{id}/edit', 'ProductController@edit')->name('products.edit');
+Route::get('products/create', 'ProductController@create')->name('products.create');
+Route::get('products/{id}', 'ProductController@show')->name('products.show');
+Route::get('products', 'ProductController@index')->name('products.index');
+Route::get('products', 'ProductController@store')->name('products.store');
+*/
+
 Route::get('/login', function (){
     return 'Login';
 })->name('login');
 
+/*
 Route::middleware([])->group(function (){
 
     Route::prefix('panel')->group(function (){
@@ -23,7 +36,25 @@ Route::middleware([])->group(function (){
         });
     });
 });
+*/
+/*
+Route::group([
+    'middleware' => [],
+    'prefix' => 'admin'
+    'namespace' => 'Admin',
+    'name' => 'admin'
+], function () {
+    Route::get('/dashboard', 'TesteController@teste')->name('dashboard');
 
+    Route::get('/financeiro', 'TesteController@teste')->name('financeiro');
+
+    Route::get('/produtos', 'TesteController@teste')->name('products');
+
+    Route::get('/', function () {
+        return redirect() ->route('admin.dashboard');
+    })->name('home');
+});
+*/
 
 //Route::get('redirect3', function () {
 //    return redirect('/nome-url');
