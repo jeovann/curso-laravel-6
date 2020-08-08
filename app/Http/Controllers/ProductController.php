@@ -11,6 +11,16 @@ class ProductController extends Controller
     public function __construct(Request $request)
     {
         $this->request = $request;
+
+        /*$this->middleware('auth');
+        $this->middleware('auth')->only([
+            'create', 'store'
+        ]);*/
+
+        $this->middleware('auth')->except([
+            'index', 'show'
+        ]);
+
     }
 
 
@@ -23,7 +33,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return 'Listagem dos produtos';
+        $teste = '<h1>Olá!</h1>';
+
+        return view('admin.pages.products.index', compact('teste'));
     }
 
     /**

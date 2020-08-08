@@ -1,6 +1,6 @@
 <?php
 
-Route::resource('products', 'ProductController');
+Route::resource('products', 'ProductController'); //->middleware('auth');
 /*
 Route::put('products/{id}', 'ProductController@destroy')->name('products.destroy');
 Route::put('products/{id}', 'ProductController@update')->name('products.update');
