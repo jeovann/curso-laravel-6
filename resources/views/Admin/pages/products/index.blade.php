@@ -7,6 +7,33 @@
 @section('content')
     <h1>Exibindo os produtos</h1>
 
+    @component('admin.components.card')
+
+    @slot('title')
+        <h1>Título Card</h1>    
+    @endslot
+        Um card de exemplo        
+    @endcomponent
+
+    <hr>
+    @include('admin.includes.alerts', ['content' => 'Alerta de preços de produtos'])
+
+    <hr>
+
+    @if (isset($products))
+        @foreach ($products as $product)
+            <p class="@if ($loop->last) last @endif"> {{ $product }}</p>
+        @endforeach
+    @endif
+
+        <hr>
+        @forelse ($products as $product)
+            <p class="@if ($loop->first) last @endif"> {{ $product }}</p>
+        @empty
+            <p>Não existe produto cadastrados.</p>
+        @endforelse
+        <hr>
+
     @if ($teste === 123)
         é igual
     @elseif($teste == 123)
@@ -57,3 +84,8 @@
             Default
     @endswitch
 @endsection
+
+
+<style>
+    .last {background: #ccc;}
+</style>
